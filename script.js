@@ -65,19 +65,6 @@ function drop(event) {
 }
 
 
-
-// Pronunciation Practice
-function playAudio() {
-    const audio = new Audio('audio/word.mp3'); // Add audio file here
-    audio.play();
-}
-
-function checkPronunciation() {
-    // You would need to integrate SpeechRecognition API for checking pronunciation.
-    const feedback = document.getElementById("pronunciation-feedback");
-    feedback.textContent = "Pronunciation check feature coming soon!";
-}
-
 // Vocabulary Builder
 function checkAnswer(answer) {
     if (answer === 'correct1' || answer === 'correct2') {
@@ -88,40 +75,21 @@ function checkAnswer(answer) {
 }
 
 // Reading Comprehension
-function checkReading() {
-    const answer = document.getElementById("question1").value;
-    const feedback = document.getElementById("reading-feedback");
-
-    if (answer === "apples") {
-        feedback.textContent = "Correct!";
-        feedback.style.color = "green";
+function checkReadingAnswer() {
+    var answer = document.getElementById('reading-answer').value;
+    if (answer === "correct") {
+        alert("Correct! John bought apples.");
+    } else if (answer === "wrong") {
+        alert("Incorrect. Try again!");
     } else {
-        feedback.textContent = "Incorrect!";
-        feedback.style.color = "red";
+        alert("Please select an answer.");
     }
 }
-
-// Phrasal Verbs
-function checkPhrasal() {
-    const verb = document.getElementById("phrasal-verb").value;
-    const feedback = document.getElementById("phrasal-feedback");
-
-    if (verb === "call off") {
-        feedback.textContent = "Correct!";
-        feedback.style.color = "green";
-    } else {
-        feedback.textContent = "Incorrect!";
-        feedback.style.color = "red";
-    }
-}
-
 function goToMenu() {
     // Sembunyikan semua section fitur (contoh: Grammar Practice)
     document.getElementById('grammar-section').style.display = 'none'; 
-    document.getElementById('pronunciation-section').style.display = 'none'; 
-    document.getElementById('vocabulary-section').style.display = 'none'; 
-    document.getElementById('reading-section').style.display = 'none'; 
-    document.getElementById('phrasal-section').style.display = 'none'; // Jika ada bagian lain
+    document.getElementById('pronunciation-section').style.display = 'none';  
+    document.getElementById('reading-section').style.display = 'none'; n
 
     // Tampilkan menu fitur kembali
     document.getElementById('menu').style.display = 'flex'; // Tampilkan menu yang ada
@@ -129,5 +97,6 @@ function goToMenu() {
     // Tampilkan elemen header utama (judul, deskripsi, dll.)
     document.getElementById('main-header').style.display = 'block';
 }
+
 
 
