@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual English Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+ <header id="main-header">
+        <div class="header-content">
+            <h1>EngageLab</h1>
+            <p>Dive into engaging exercises and elevate your English proficiency with our tailored sections!</p>
+            <button onclick="showMenu()">Start</button> <!-- Tombol untuk memulai dan menampilkan menu -->
+        </div>
+    </header>
+
+    <!-- Ini adalah menu tombol yang akan di-hide sampai "Start" diklik -->
+    <nav id="menu" class="button-container" style="display: none;">
+        <a href="#grammar-section" onclick="toggleSection('grammar-section')">Grammar Practice</a>
+        <a href="#pronunciation-section" onclick="toggleSection('pronunciation-section')">Pronunciation Practice</a>
+        <a href="#vocabulary-section" onclick="toggleSection('vocabulary-section')">Vocabulary Builder</a>
+        <a href="#reading-section" onclick="toggleSection('reading-section')">Reading Comprehension</a>
+        <a href="#phrasal-section" onclick="toggleSection('phrasal-section')">Phrasal Verbs</a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<section id="grammar-section" class="content-section"style="display:none;">
+    <h2>Grammar Practice</h2>
+
+    <!-- Soal 1 -->
+    <p>Drag the right grammar:</p>
+    <p>
+        He <span id="drop-zone1" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">[_____]</span> likes to play soccer.
+    </p>
+    <div id="choices1">
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="correct1">doesn't</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong1-1">don't</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong1-2">isn't</span>
+    </div>
+
+    <!-- Soal 2 -->
+    <p>
+        She <span id="drop-zone2" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">[_____]</span> very friendly.
+    </p>
+    <div id="choices2">
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="correct2">is</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong2-1">are</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong2-2">isn't</span>
+    </div>
+
+    <!-- Soal 3 -->
+    <p>
+        They <span id="drop-zone3" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">[_____]</span> going to the party.
+    </p>
+    <div id="choices3">
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="correct3">are</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong3-1">is</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong3-2">am</span>
+    </div>
+
+    <!-- Soal 4 -->
+    <p>
+        I <span id="drop-zone4" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">[_____]</span> a cup of coffee every morning.
+    </p>
+    <div id="choices4">
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="correct4">drink</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong4-1">drinks</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong4-2">drinking</span>
+    </div>
+
+    <!-- Soal 5 -->
+    <p>
+        They <span id="drop-zone5" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">[_____]</span> been to Paris last year.
+    </p>
+    <div id="choices5">
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="correct5">have</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong5-1">has</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong5-2">had</span>
+    </div>
+
+    <!-- Soal 6 -->
+    <p>
+        The book <span id="drop-zone6" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">[_____]</span> on the table.
+    </p>
+    <div id="choices6">
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="correct6">is</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong6-1">are</span>
+        <span class="drag-item" draggable="true" ondragstart="drag(event)" id="wrong6-2">was</span>
+    </div>
+
+    <button id="back-home" onclick="goToMenu()">Kembali ke Home</button>
+</section>
+
+
+        <!-- Pronunciation Practice Section -->
+        <section id="pronunciation-section" style="display:none;">
+            <h2>Pronunciation Practice</h2>
+            <p>Listen to the word and try to pronounce it:</p>
+            <button onclick="playAudio()">Play Word</button>
+            <input type="file" id="audio-input">
+            <button onclick="checkPronunciation()">Check Pronunciation</button>
+            <p id="pronunciation-feedback"></p>
+            <button onclick="goToMenu()">Kembali ke Home</button> 
+        </section>
+
+        <!-- Vocabulary Builder Section -->
+        <section id="vocab-section" class="content-section" style="display:none;">
+            <h2>Vocabulary Builder</h2>
+            <p>Choose the correct definition:</p>
+        
+            <!-- Soal 1 -->
+            <p><strong>Ambiguous</strong></p>
+            <div id="choices1">
+                <button class="choice-item" onclick="checkAnswer('wrong1')">A. Something very clear and obvious</button>
+                <button class="choice-item" onclick="checkAnswer('correct1')">B. Open to more than one interpretation</button>
+                <button class="choice-item" onclick="checkAnswer('wrong1')">C. Completely false</button>
+            </div>
+        
+            <!-- Soal 2 -->
+            <p><strong>Elaborate</strong></p>
+            <div id="choices2">
+                <button class="choice-item" onclick="checkAnswer('wrong2')">A. Very simple and basic</button>
+                <button class="choice-item" onclick="checkAnswer('correct2')">B. Involving many carefully arranged parts or details</button>
+                <button class="choice-item" onclick="checkAnswer('wrong2')">C. Lacking complexity</button>
+            </div>
+        
+            <button id="back-home" onclick="goToMenu()">Kembali ke Home</button>
+        </section>
+
+        <!-- Reading Comprehension Section -->
+        <section id="reading-section" style="display:none;">
+            <h2>Reading Comprehension</h2>
+            <p>Read the text and answer the questions:</p>
+            <p id="text">John went to the market and bought some apples.</p>
+            <label for="question1">What did John buy?</label>
+            <select id="question1">
+                <option value="none">Select an answer</option>
+                <option value="apples">Apples</option>
+                <option value="oranges">Oranges</option>
+            </select>
+            <button onclick="checkReading()">Submit Answer</button>
+            <p id="reading-feedback"></p>
+            <button onclick="goToMenu()">Kembali ke Home</button> 
+        </section>
+
+        <!-- Phrasal Verbs Section -->
+        <section id="phrasal-section" style="display:none;">
+            <h2>Phrasal Verbs</h2>
+            <p>Complete the sentence using the correct phrasal verb:</p>
+            <p id="phrasal-sentence">He decided to ______ the meeting.</p>
+            <select id="phrasal-verb">
+                <option value="cancel">Cancel</option>
+                <option value="call off">Call off</option>
+            </select>
+            <button onclick="checkPhrasal()">Check Answer</button>
+            <p id="phrasal-feedback"></p>
+            <button onclick="goToMenu()">Kembali ke Home</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
