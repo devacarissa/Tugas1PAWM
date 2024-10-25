@@ -86,10 +86,10 @@ function checkReadingAnswer() {
     }
 }
 function goToMenu() {
-    // Sembunyikan semua section fitur (contoh: Grammar Practice)
+    // Sembunyikan semua section fitur yang ada (contoh: Grammar Practice, Vocabulary, Reading)
     document.getElementById('grammar-section').style.display = 'none'; 
-    document.getElementById('pronunciation-section').style.display = 'none';  
-    document.getElementById('reading-section').style.display = 'none'; n
+    document.getElementById('vocabulary-section').style.display = 'none';  
+    document.getElementById('reading-section').style.display = 'none';
 
     // Tampilkan menu fitur kembali
     document.getElementById('menu').style.display = 'flex'; // Tampilkan menu yang ada
